@@ -22,7 +22,7 @@ class _MyFormPageState extends State<MyFormPage> {
   double umur = 0;
   String kelasPBP = 'A';
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
-  bool _nilaiSwich = false;
+  bool _nilaiSwitch = false;
 
 
 
@@ -207,10 +207,10 @@ class _MyFormPageState extends State<MyFormPage> {
 
                 SwitchListTile(
                   title: const Text('Practice Mode'),
-                  value: _nilaiSwich,
+                  value: _nilaiSwitch,
                   onChanged: (bool value){
                     setState(() {
-                      _nilaiSwich = value;
+                      _nilaiSwitch = value;
                     });
                   },
                   secondary: const Icon(Icons.run_circle_outlined),
@@ -241,7 +241,13 @@ class _MyFormPageState extends State<MyFormPage> {
                                 children: <Widget>[
                                   Center(child: const Text('Informasi Data')),
                                   SizedBox(height: 20),
-                                  Text(""),
+                                  Text(
+                                    'Nama : $_namaLengkap \n'
+                                    'Umur : $umur \n'
+                                    'Kelas PBP : $kelasPBP \n'
+                                    'Jenjang : ${jenjangSarjana ? 'Sarjana' : jenjangDiploma ? 'Diploma' : jenjangMagister ? 'Magister' : 'Doktor'} \n'
+                                    'Practice Mode : ${_nilaiSwitch ? 'Yes' : 'No'}'
+                                  ),
                                   TextButton(
                                     onPressed: (){
                                       Navigator.pop(context);
@@ -253,7 +259,6 @@ class _MyFormPageState extends State<MyFormPage> {
                             ),
                           );
                         } 
-                      
                       );
                     }
                   },
