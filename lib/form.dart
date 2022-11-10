@@ -243,10 +243,12 @@ class _MyFormPageState extends State<MyFormPage> {
                                   SizedBox(height: 20),
                                   Text(
                                     'Nama : $_namaLengkap \n'
-                                    'Umur : $umur \n'
+                                    'Umur : ${umur.round()} \n'
                                     'Kelas PBP : $kelasPBP \n'
-                                    'Jenjang : ${jenjangSarjana ? 'Sarjana' : jenjangDiploma ? 'Diploma' : jenjangMagister ? 'Magister' : 'Doktor'} \n'
-                                    'Practice Mode : ${_nilaiSwitch ? 'Yes' : 'No'}'
+                                    'Jenjang : ${jenjangSarjana ? 'Sarjana' : jenjangDiploma ? 'Diploma' : jenjangMagister ? 'Magister' : jenjangDoktor ? 'Doktor' : '-'} \n'
+                                    'Practice Mode : ${_nilaiSwitch ? 'Yes' : 'No'}',
+                                    
+                                    textAlign: TextAlign.center,
                                   ),
                                   TextButton(
                                     onPressed: (){
@@ -262,8 +264,7 @@ class _MyFormPageState extends State<MyFormPage> {
                       );
                     }
                   },
-                )
-                
+                ),
               ],
             ),
           ),
