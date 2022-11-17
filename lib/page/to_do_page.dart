@@ -29,56 +29,54 @@ class _ToDoPageState extends State<ToDoPage> {
         // melakukan konversi data json menjadi object ToDo
         List<Todo> listToDo = [];
         for (var d in data) {
-        if (d != null) {
+          if (d != null) {
             listToDo.add(Todo.fromJson(d));
+          }
         }
-        }
-
         return listToDo;
     }
     
-
       @override
       Widget build(BuildContext context) {
         return Scaffold(
           appBar: AppBar(
-              title: const Text('To Do'),
+            title: const Text('To Do'),
           ),
           drawer: Drawer(
               child: Column(
-              children: [
+                children: [
                   // Menambahkan clickable menu
                   ListTile(
                   title: const Text('Counter'),
                   onTap: () {
-                      // Route menu ke halaman utama
-                      Navigator.pushReplacement(
+                    // Route menu ke halaman utama
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const MyApp()),
                       );
-                  },
+                    },
                   ),
                   ListTile(
                   title: const Text('Form'),
                   onTap: () {
-                      // Route menu ke halaman form
-                      Navigator.pushReplacement(
+                    // Route menu ke halaman form
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const MyFormPage()),
                       );
-                  },
+                    },
                   ),
                   ListTile(
                   title: const Text('ToDo'),
                   onTap: () {
-                      // Route menu ke halaman to do
-                      Navigator.pushReplacement(
+                    // Route menu ke halaman to do
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const ToDoPage()),
                       );
-                  },
+                    },
                   ),
-              ],
+                ],
               ),
           ),
           body: FutureBuilder(
